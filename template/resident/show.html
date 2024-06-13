@@ -1,0 +1,92 @@
+{% extends 'resident/base.html' %}
+
+
+{% block content %}
+{%load static%}
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+	{% load static %}
+  	<title>Table 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'tb/css/style.css' %}">
+
+
+	</head>
+	<body>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">COMPLAINTS</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-striped">
+						  <thead>
+						    <tr style="background-color: rgb(161, 251, 161); color: white;">
+						      <th style="color: rgb(0, 81, 16);">Panchayat</th>
+						      <th style="color: rgb(0, 81, 16);">Ward</th>
+                  <th style="color: rgb(0, 81, 16);">Name</th>
+						      <th style="color: rgb(0, 81, 16);">Subject</th>
+							  <th style="color: rgb(0, 81, 16);">Status</th>
+
+						
+							  <th style="color: rgb(0, 81, 16);">&nbsp;</th>
+							  <th style="color: rgb(0, 81, 16);">&nbsp;</th>
+
+              </tr>
+						  </thead>
+						  <tbody>
+
+							
+							{% for x in n %}
+						    <tr>
+						      <td scope="row">{{x.usr.panchayat}}</td>
+						      <td>{{x.usr.ward}}</td>
+						      <td>{{x.usr.name}}</td>
+							  <td>{{x.subject}}</td>
+							  <td>{{x.complaintstatus}}</td>
+							  <td><a href="cd/{{x.id}}" class="btn btn-success">Details</a></td>
+
+												    
+                            </tr>
+							{% endfor %}
+
+
+						  </tbody>
+						</table>
+					</div>
+                    <br><br>
+                    <div>
+                        <a href="{% url 'viewcomplaints' %}" class="btn btn-success">Back</a>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'tb/js/jquery.min.js' %}"></script>
+  <script src="{% static 'tb/js/popper.js' %}"></script>
+  <script src="{% static 'tb/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'tb/js/main.js' %}"></script>
+
+	</body>
+
+
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+        #details{
+        border:10px ridge rgb(163, 161, 151);
+        padding:10px;
+        height: 400px;
+        width:fit-content;
+        overflow: auto;
+    }
+    table{
+      
+    border:5px solid rgb(156, 151, 174);
+    overflow:auto
+    }
+
+
+
+    table tr td{
+        border:1px solid rgb(127, 158, 179);
+        padding:20px
+    }
+    </style>
+
+</style>
+<body>
+    <div style="display:inline-block;border:3px ridge brown;background-color: white;height:1000px;width:92%;padding:50px">
+        <u style="color:rgb(205, 137, 195)"><h1 style="color:rgb(128, 105, 189)">Resident Details Of {{usr.ward}}</h1></u>
+        <br><br><br>
+        <h2>Total residents  :{{tot}}</h2>
+        <h2>Total complaints : {{comp}}</h2>
+
+<div id="details" >
+        
+<table >
+
+<tr>
+    <th>Name</th>
+    <th>Ward</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Profile pic</th>   
+</tr>
+{% for i in res %}
+
+<tr>
+    <!--<td><a href="edit/{{i.id}}/{{i.fruit}}"><abbr title="click to edit">{{i.fruit}}</abbr></a> </td>-->
+    <td>{{i.name}}</td>
+    <td>{{i.ward}}</td>
+    <td>{{i.email}}</td>
+    <td>{{i.phone}}</td>
+    <td>{{i.address}}</td>
+    <td>
+        <a href="{{i.image.url}}" > <img src="{{i.image.url}}" alt="profile_pic" style="height:150px;width:150px;border:2px solid black">
+        </a>
+        </td>
+
+
+    {% endfor %}
+
+
+</table>
+</div>
+<br>
+       
+
+
+    </div>
+</div>
+</body>
+</html>

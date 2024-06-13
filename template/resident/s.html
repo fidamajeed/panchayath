@@ -1,0 +1,86 @@
+{%extends 'resident/base.html'%}
+{% block content %}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/templatemo-style.css'%}">
+<link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+       
+        <div class="login-page">
+            <div class="form">
+
+              <form class="login-form">
+                {% csrf_token %}
+                <input type="text" placeholder="panchayat" name="panchayat"/>
+                <input type="text" placeholder="ward" name="ward"/>
+                <input type="text" placeholder="name" name="name"/>
+                <input type="text" placeholder="email" name="email"/>
+                <input type="text" placeholder="phone" name="phone"/>
+                <input type="text" placeholder="username" name="username"/>
+                <input type="password" placeholder="password" name="password" id="password" oninput="validatePassword()" required/>
+                <div id="password-strength"></div>
+                <input type="password" placeholder="repassword" name="repassword" id="confirm-password" oninput="validatePassword()" required/>
+                <div id="confirm-password-message"></div>
+                <div class="btn-layer"></div>
+
+                <input type="submit" value="Signup" id="submit-button" disabled>
+                <script>
+                    function validatePassword() {
+                      var password = document.getElementById("password").value;
+                      var confirmPassword = document.getElementById("confirm-password").value;
+                      var passwordStrength = document.getElementById("password-strength");
+                      var confirmPasswordMessage = document.getElementById("confirm-password-message");
+                      var submitButton = document.getElementById("submit-button");
+                 
+                      // Define your password conditions here
+                      var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                 
+                      // Validate password
+                      if (regex.test(password)) {
+                        passwordStrength.innerHTML = "Password is strong!";
+                        passwordStrength.style.color = "green";
+                        submitButton.disabled = false;
+                 
+                      } else {
+                        passwordStrength.innerHTML = "Password is weak. It should contain at least 8 characters, one uppercase letter, one lowercase letter, one digit, and one special character.";
+                        passwordStrength.style.color = "red";
+                        submitButton.disabled = true;
+                      }
+                 
+                      // Validate confirmation password
+                      if (confirmPassword === password) {
+                        confirmPasswordMessage.innerHTML = "Passwords match!";
+                        confirmPasswordMessage.style.color = "green";
+                      } else {
+                        confirmPasswordMessage.innerHTML = "Passwords do not match.";
+                        confirmPasswordMessage.style.color = "red";
+                 
+                      }
+                    }
+                  </script>
+                
+              </form>
+            </div>
+          </div>
+          
+
+                   
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+        
+        
+    
+    
+
+ </body>
+ 
+ </html>

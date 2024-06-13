@@ -1,0 +1,86 @@
+{% extends 'adminn/base.html' %}
+
+
+{% block content %}
+{%load static%}
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+	{% load static %}
+  	<title>Table 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'tb/css/style.css' %}">
+
+
+	</head>
+	<body>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row">
+				<div  class="col-md-4" style="margin-left: 150px;">
+				  <div style="background-color: white; border: 5px solid green; padding: 20px;  margin: 20px;"   >
+					  <svg style="font-size: 3em;
+					  color:#000000;
+					  width: 80px;
+					  height: 80px;
+					  text-align: center;
+					  
+					  " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+						<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+					  </svg>
+					<h4 style="color: black;">Residents</h4>
+					<h3 style="color: black;">{{ur}}</h3>
+				  </div>
+				</div>
+			
+				<div  class="col-md-4" style="margin-left: 100px;">
+					<div style="background-color: white; border: 5px solid green; padding: 20px;  margin: 20px;"   >
+						<svg style="font-size: 3em;
+						color:#000000;
+						width: 80px;
+						height: 80px;
+						text-align: center;
+						
+						" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+						  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+						</svg>
+					  <h4 style="color: black;">Members</h4>
+					  <h3 style="color: black;">{{um}}</h3>
+					</div>
+				  </div>
+				
+			</div>
+			<div class="row">
+				<div  class="col-md-4" style="margin-left: 400px;">
+					<div style="background-color: white; border: 5px solid green; padding: 20px;  margin: 20px;"   >
+						<p style="width: 80px;
+						height: 62px;"></p>
+					  <h4 style="color: black;">Complaints</h4>
+					  <h3 style="color: black;">{{cl}}</h3> 
+					</div>
+				  </div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'tb/js/jquery.min.js' %}"></script>
+  <script src="{% static 'tb/js/popper.js' %}"></script>
+  <script src="{% static 'tb/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'tb/js/main.js' %}"></script>
+
+	</body>
+
+
+</html>
+
+{% endblock %}

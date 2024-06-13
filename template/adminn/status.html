@@ -1,0 +1,120 @@
+{% extends 'adminn/base.html' %}
+
+
+{% block content %}
+{%load static%}
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+	{% load static %}
+  	<title>Table 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'tb/css/style.css' %}">
+
+
+	</head>
+	<body>
+
+
+{% if d1 > 0 %}
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+
+
+					<h2 class="heading-section">{{w}} Complaints</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-striped">
+						  <thead>
+						    <tr style="background-color: rgb(161, 251, 161); color: white;">
+						      <th style="color: rgb(0, 81, 16);">Panchayat</th>
+						      <th style="color: rgb(0, 81, 16);">Ward</th>
+						      <th style="color: rgb(0, 81, 16);">No. of Complaints</th>
+						
+							  <th style="color: rgb(0, 81, 16);">&nbsp;</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+
+							
+							{% for j,k in d.items %}
+							
+						    <tr>
+								
+						      <td scope="row">{{j}}</td>
+							  
+
+                              {% for m,n in k.items %}
+
+						      <td>{{m}}</td>
+
+						      <td>{{n}}</td>
+
+						      <td><a href="status/{{m}}/{{w}}" class="btn btn-success">View</a></td>
+						    
+                              {% endfor %}
+
+                            </tr>
+							{% endfor %}
+
+							
+
+						  </tbody>
+						</table>
+
+					</div>
+          <br><br>
+                    <div>
+                        <a href="{% url 'base' %}" class="btn btn-success">Back</a>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'tb/js/jquery.min.js' %}"></script>
+  <script src="{% static 'tb/js/popper.js' %}"></script>
+  <script src="{% static 'tb/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'tb/js/main.js' %}"></script>
+
+
+{% else %}
+
+<section class="ftco-section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6 text-center mb-5">
+
+
+				<h2 class="heading-section">NO {{w}}</h2>
+			</div>
+		</div>
+	
+	</div>
+</section>
+
+{% endif %}
+
+	</body>
+
+
+
+
+</html>
+
+{% endblock %}

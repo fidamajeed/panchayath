@@ -1,0 +1,140 @@
+{% extends 'adminn/base.html' %}
+
+
+{% block content %}
+{%load static%}
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+	{% load static %}
+  	<title>Table 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'tb/css/style.css' %}">
+
+	
+	</head>
+	<body>
+		{% if d1 > 0 %}
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">User Approval</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-striped">
+						  <thead>
+						    <tr style="background-color: rgb(161, 251, 161); color: white;">
+						      <th style="color: rgb(0, 81, 16);">Name</th>
+						      <th style="color: rgb(0, 81, 16);">Email</th>
+						      <th style="color: rgb(0, 81, 16);">Phone</th>
+						      <th style="color: rgb(0, 81, 16);">Proof</th>
+							  <th style="color: rgb(0, 81, 16);">Status</th>
+						
+							  <th style="color: rgb(0, 81, 16);">&nbsp;</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+
+							{% for i in l %}
+						    <tr>
+						      <td scope="row">{{i.name}}</td>
+						      <td>{{i.email}}</td>
+						      <td>{{i.phone}}</td>
+                              <td><img src="{{i.proof.url}}" style="height: 80px; width: 180px;"></td>
+							  <td>{{i.status}}</td>
+						      <td><a href="pro/{{i.id}}" class="btn btn-success buy-now btn-sm height-auto px-4 py-3">view</a></td>
+							 
+							</tr>
+							{% endfor %}
+							
+<!-- 
+							<a href="editproduct/{{i.id}}" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary" style="color: black; background-color: #51eaea;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								Delete
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+								  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+								  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+								</svg>
+							  </a> 
+				 -->
+							   <!-- Modal -->
+							   <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Sure !</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+									Confirm to approve...
+									</div>
+									<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+									<form action="deleteproduct/{{l.id}}" method="post">
+										{% csrf_token %}
+									<button type="submit" class="btn btn-primary">Confirm</button>
+									</form>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+ -->
+
+
+
+
+
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+{% else %}
+
+<section class="ftco-section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6 text-center mb-5">
+
+
+				<h2 class="heading-section">NO USERS TO APPROVE</h2>
+			</div>
+		</div>
+	
+	</div>
+</section>
+
+{% endif %}
+
+	<script src="{% static 'tb/js/jquery.min.js' %}"></script>
+  <script src="{% static 'tb/js/popper.js' %}"></script>
+  <script src="{% static 'tb/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'tb/js/main.js' %}"></script>
+
+	</body>
+
+	<!-- <td><a href="#" class="btn btn-success">Progress</a></td>
+	<td><a href="#" class="btn btn-danger">On hold</a></td>
+	<td><a href="#" class="btn btn-warning">Open</a></td> -->
+
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{%extends 'resident/base.html'%}
+{% block content %}
+{%load static%}
+
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css'%}">
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <div  class="container tm-mt-big tm-mb-big">
+        <div class="row">
+          <div  class="col-xl-10  col-lg-10 col-md-12 col-sm-12 mx-auto">
+            <div style="padding-bottom: 100px;" class="tm-bg-primary-dark tm-block tm-block-h-auto">
+              <div class="row">
+                <div class="col-12">
+                  <h2 class="tm-block-title d-inline-block"><h1>Profile</h1></h2>
+                </div>
+              </div>
+              <div class="row tm-edit-product-row">
+                <div class="col-xl-6 col-lg-6 col-md-12">
+                  
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                      <label for="name"><h3>Name</h3></label>
+                      <input id="subject" name="name" type="text" value="{{b.name}}"  class="form-control validate" />
+                      <label for="name"><h3>Phone Number</h3></label>
+                      <input id="subject" name="phone" type="text" value="{{b.phone}}"  class="form-control validate" />
+                      <label for="name"><h3>E-mail</h3></label>
+                      <input id="subject" name="email" type="text" value="{{b.email}}"  class="form-control validate" />
+                      <label for="name"><h3>Username</h3></label>
+                      <input id="subject" name="username" type="text" value="{{b.username}}"  class="form-control validate" />
+                    </div> 
+                    <table>
+                        <tr>
+                            <th><label for=""><h3>photo</h3></label></th>
+                            <th><label for=""><h3>Id Proof</h3></label></th>
+                        </tr>
+                        <tr>
+                            <td> <img style="height: 200px;width: 200px;" src="{{b.image.url}}" alt=""></td>
+                            <td><img style="height: 200px;width: 200px;" src="{{b.proof.url}}" alt=""></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+
+                        </tr>
+                        <tr>
+                            <th><label for="name"><h3>Change Photo</h3></label></th>
+                            <th><label for="name"><h3>Change ID Proof</h3></label></th>
+                        </tr>
+                        <tr>
+                            <td><input name="image" type="file" /></td>
+                            <td><input name="proof" type="file" /></td>
+                        </tr>
+                    </table>
+                    </div>
+                
+                <br><br>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success btn-block text-uppercase">save</button>
+                   
+                  </div>
+                
+            </div>
+        </div>
+        
+    </form>
+    
+    {% endblock %}
